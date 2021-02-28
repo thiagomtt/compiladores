@@ -68,11 +68,11 @@ SUB: '-';
 DIV: '/';
 RESTO: '%';
 MULT: '*';
-OU_LOGICO: '^';
-E_LOGICO: '&';
+ELEVADO: '^';
+E_COMERCIAL: '&';
 
 PONTO: '.';
-RETICENCIAS: '..';
+INTERVALO: '..';
 DOIS_PONTOS: ':';
 VIRGULA: ',';
 
