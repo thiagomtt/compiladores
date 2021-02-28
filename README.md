@@ -2,5 +2,5 @@
 
 ### Descrição de cada trabalho
 
-*   Analisador Léxico - Implementar um analisador léxico para a linguagem LA (Linguagem Algorítmica)
+*   Analisador léxico - Implementar um analisador léxico para a linguagem LA (Linguagem Algorítmica)
 
