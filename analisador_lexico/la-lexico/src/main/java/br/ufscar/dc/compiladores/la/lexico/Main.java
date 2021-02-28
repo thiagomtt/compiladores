@@ -3,8 +3,8 @@
  * Implementação de um analisador léxico para a linguagem LA utilizando ANTLR
  * 
  * Grupo:
- * Thiago de Moraes Teixeira - 760667
- * Victoria de Martini       - RA
+ * Thiago de Moraes Teixeira    - 760667
+ * Victoria de Martini de Souza - 759378
  *
  */
 package br.ufscar.dc.compiladores.la.lexico;
@@ -19,7 +19,6 @@ import org.antlr.v4.runtime.Token;
 
 // main class
 public class Main {
-
     public static void main(String args[]) throws IOException {
         // Declaracao para inicializar os objetos do antlr
         CharStream cs = CharStreams.fromFileName(args[0]);
@@ -34,18 +33,22 @@ public class Main {
         // Escreve a saida da analise lexica dentro do arquivo
         try {
             FileWriter myWriter = new FileWriter(args[1]);
+            OUTER:
             while ((t = lex.nextToken()).getType() != Token.EOF) {
-                if (LaLexer.VOCABULARY.getDisplayName(t.getType()).equals("ERRO")) {
-                    myWriter.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado\n");
-                    break;
-                } else if (LaLexer.VOCABULARY.getDisplayName(t.getType()).equals("COMENTARIO_ERRADO")) {
-                    myWriter.write("Linha " + t.getLine() + ": comentario nao fechado\n");
-                    break;
-                } else if (LaLexer.VOCABULARY.getDisplayName(t.getType()).equals("CADEIA_ERRADA")) {
-                    myWriter.write("Linha " + t.getLine() + ": cadeia literal nao fechada\n");
-                    break;
-                } else {
-                    myWriter.write("<'" + t.getText() + "'," + LaLexer.VOCABULARY.getDisplayName(t.getType()) + ">\n");
+                switch (LaLexer.VOCABULARY.getDisplayName(t.getType())) {
+                    case "ERRO" -> {
+                        myWriter.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado\n");
+                        break OUTER;
+                    }
+                    case "COMENTARIO_ERRADO" -> {
+                        myWriter.write("Linha " + t.getLine() + ": comentario nao fechado\n");
+                        break OUTER;
+                    }
+                    case "CADEIA_ERRADA" -> {
+                        myWriter.write("Linha " + t.getLine() + ": cadeia literal nao fechada\n");
+                        break OUTER;
+                    }
+                    default -> myWriter.write("<'" + t.getText() + "'," + LaLexer.VOCABULARY.getDisplayName(t.getType()) + ">\n");
                 }
             }
             myWriter.close();
