@@ -84,6 +84,9 @@ FECHACOL: ']';
 COMENTARIO: '{' ~('\n'|'}')* '}' -> skip;
 WS: ( ' ' | '\t' | '\r' | '\n' ) -> skip;
 
+/*
+Regras utilizadas para os erros léxicos dos testes
+*/
 COMENTARIO_ERRADO: '{' .;
 CADEIA_ERRADA: '"' (~('"'))* '\n';
 ERRO: .;
