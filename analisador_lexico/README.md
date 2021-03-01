@@ -9,7 +9,7 @@
 
 ### Implementar um analisador léxico para a lingaguem LA (Linguagem Algorítmica) 
 
--   Descrição detalhada no arquivo pdf.
+-   Instruções detalhada no arquivo pdf.
 
 ##  Descrição 
 
