@@ -13,6 +13,8 @@
 
 ##  Descrição 
 
+-   O projeto foi feito seguindo todas as instruções do professor criando um novo projeto com Maven no Netbeans.
+
 ### Dependências
 
 -   [Apache Maven Project](https://maven.apache.org)
