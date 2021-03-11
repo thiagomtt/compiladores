@@ -1,5 +1,5 @@
 /*
- * Trabalho 1 - Compiladores ENPE 2020/2
+ * Trabalho 2 - Compiladores ENPE 2020/2
  * Implementação de um analisador sintático para a linguagem LA utilizando ANTLR
  * 
  * Grupo:
@@ -31,6 +31,7 @@ public class Main {
         // Cria o arquivo de saida no path recebido via linha de comando
         File myFile = new File(args[1]);
 
+        // Roda o analisador sintatico
         try (PrintWriter myWriter = new PrintWriter(myFile)) {
             CommonTokenStream tokens = new CommonTokenStream(lex);
             LaParser parser = new LaParser(tokens);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufscar.dc.compiladores.la.sintatico;
 
 import java.io.PrintWriter;
@@ -15,10 +10,6 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.atn.ATNConfigSet;
 import org.antlr.v4.runtime.dfa.DFA;
 
-/**
- *
- * @author thiago
- */
 public class MeuErrorListener implements ANTLRErrorListener {
 
     PrintWriter myWriter;
@@ -31,7 +22,7 @@ public class MeuErrorListener implements ANTLRErrorListener {
 
     @Override
     public void syntaxError(Recognizer<?, ?> rcgnzr, Object offendingSymbol, int i, int i1, String string, RecognitionException re) {
-
+        // Compara os erros pelo texto
         Token t = (Token) offendingSymbol;
         System.out.print("\n\nERRO: " + t.getText().length());
         System.out.println("\n\n" + t.getText());
