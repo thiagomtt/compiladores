@@ -13,11 +13,9 @@ import org.antlr.v4.runtime.dfa.DFA;
 public class MeuErrorListener implements ANTLRErrorListener {
 
     PrintWriter myWriter;
-    int errorsPrinted;
 
-    public MeuErrorListener(PrintWriter myWriter, int errorsPrinted) {
+    public MeuErrorListener(PrintWriter myWriter) {
         this.myWriter = myWriter;
-        this.errorsPrinted = errorsPrinted;
     }
 
     @Override

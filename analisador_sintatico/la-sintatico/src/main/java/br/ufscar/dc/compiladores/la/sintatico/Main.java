@@ -24,8 +24,6 @@ public class Main {
         // Declaracao para inicializar os objetos do antlr
         CharStream cs = CharStreams.fromFileName(args[0]);
         LaLexer lex = new LaLexer(cs);
-        // Para controlar o número de erros impressos dentro do arquivo
-        int errorsPrinted = 0;
         // Cria o arquivo de saida no path recebido via linha de comando
         File myFile = new File(args[1]);
 
@@ -33,7 +31,7 @@ public class Main {
         try (PrintWriter myWriter = new PrintWriter(myFile)) {
             CommonTokenStream tokens = new CommonTokenStream(lex);
             LaParser parser = new LaParser(tokens);
-            parser.addErrorListener(new MeuErrorListener(myWriter, errorsPrinted));
+            parser.addErrorListener(new MeuErrorListener(myWriter));
             try {
                 parser.programa();
             } catch (Exception e) {
