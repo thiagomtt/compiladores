@@ -1,12 +1,3 @@
-/*
- * Trabalho 1 - Compiladores ENPE 2020/2
- * Implementação de um analisador léxico para a linguagem LA utilizando ANTLR
- * 
- * Grupo:
- * Thiago de Moraes Teixeira    - 760667
- * Victoria de Martini de Souza - 759378
- *
- */
 package br.ufscar.dc.compiladores.la.lexico;
 
 // imports
