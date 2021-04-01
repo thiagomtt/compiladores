@@ -1,13 +1,3 @@
-/*
- * Trabalho 3 - Compiladores ENPE 2020/2
- * Implementação de um analisador semântico para a linguagem LA utilizando ANTLR
- * Implementação de um gerador de código C para a linguagem LA
- *
- * Grupo:
- * Thiago de Moraes Teixeira    - 760667
- * Victoria de Martini de Souza - 759378
- *
- */
 package br.ufscar.dc.compiladores.la.semantico;
 
 import br.ufscar.dc.compiladores.la.semantico.LaParser.ProgramaContext;
