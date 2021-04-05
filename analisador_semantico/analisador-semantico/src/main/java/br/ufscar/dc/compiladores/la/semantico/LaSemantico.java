@@ -330,7 +330,13 @@ public class LaSemantico extends LaBaseVisitor<Void> {
                 if(tipoIdent.equals("registro")){
                     tipoIdent = escoposAninhados.obterEscopoAtual().nomeRegistro(nomeIdent);
                 }
+                if(ctx.pointer != null){
+                    tipoIdent = tipoIdent.substring(1);
+                }
+                System.out.println("IDENT="+nomeIdent);
+                System.out.println("tipoIdent="+tipoIdent);
                 tipoExp = VerificaTipo.Expressao(ctx.expressao(), escoposAninhados);
+                System.out.println("tipoexp="+tipoExp);
                 // Trunca inteiro para real
                 if (tipoIdent.equals("real") && tipoExp.equals("inteiro")) {
                 } else if (!tipoIdent.equals(tipoExp)) {
