@@ -1,14 +1,15 @@
-produtos:
-    bolacha: 5 "bolacha de morango"
-    amendoim: 10 "amendoim"
+produtos
+    bolacha: 5.0 "bolacha de morango"
+    amendoim: 10.0 "amendoim"
 
-nota:
+nota
     emitente:
         441.751.848-30
     destinatario:
-        441.751.628-60
+        17.453.915/0001-55
     itens:
         bolacha
+        amendoim (2)
 
     pagamento:
         aVista
