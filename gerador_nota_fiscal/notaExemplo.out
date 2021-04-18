@@ -1,0 +1,39 @@
+[
+	{
+		"emitente": {
+			"cpfCnpj": "441.751.848-30"
+		},
+		"destinatario": {
+			"cpfCnpj": "17.453.915/0001-55",
+			"razaoSocial": "NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL",
+			"email": "thiagomt@estudante.ufscar.br",
+			"endereco": {
+				"logradouro": "AVENIDA DUQUE DE CAXIAS",
+				"numero": "882",
+				"bairro": "CENTRO",
+				"codigoCidade": "4115200",
+				"descricaoCidade": "MARINGA",
+				"estado": "PR",
+				"cep": "87020025"
+			}
+		},
+		"itens": [
+			{
+				"codigo": "1",
+				"descricao": "bolacha de morango",
+				"valor": "5.0",
+				"quantidade": "1"
+			},
+			{
+				"codigo": "2",
+				"descricao": "amendoim",
+				"valor": "10.0",
+				"quantidade": "2"
+			}
+		],
+		"pagamentos": {
+			"meio": "aVista",
+			"valor": "25.0"
+		}
+	}
+]
