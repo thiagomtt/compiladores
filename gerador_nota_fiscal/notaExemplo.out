@@ -27,13 +27,13 @@
 			{
 				"codigo": "2",
 				"descricao": "amendoim",
-				"valor": "10.0",
+				"valor": "10.5",
 				"quantidade": "2"
 			}
 		],
 		"pagamentos": {
 			"meio": "aVista",
-			"valor": "25.0"
+			"valor": "26.0"
 		}
 	}
 ]
