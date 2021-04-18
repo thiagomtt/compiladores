@@ -30,3 +30,12 @@ nota
         cartao
 ```
 
+-   Um exemplo completo pode ser conferido nos arquivos 
+    *   notaExemplo.in 
+    *   notaExemplo.out
+
+-   O executável se encontra em "geradorNotaFiscal/target/geradornotafiscal-1.0-SNAPSHOT-jar-with-dependencies.jar"
+    Para executar utilize o seguinte formato:
+    ```bash
+    ~$ java -jar geradornotafiscal-1.0-SNAPSHOT-jar-with-dependencies.jar notaEntrada.in notaSaida.out
+    ```
