@@ -1,6 +1,6 @@
 produtos
-    bolacha: 5.0 "bolacha de morango"
-    amendoim: 10.0 "amendoim"
+    bolacha: 5 "bolacha de morango"
+    amendoim: 10.50 "amendoim"
 
 nota
     emitente:
@@ -8,7 +8,7 @@ nota
     destinatario:
         17.453.915/0001-55
     itens:
-        bolacha
+        bolacha 
         amendoim (2)
 
     pagamento:
