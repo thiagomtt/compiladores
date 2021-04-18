@@ -1,7 +1,9 @@
 package br.ufscar.dc.compiladores.geradornotafiscal;
 
 import br.ufscar.dc.compiladores.geradornotafiscal.NotasParser.NotaFiscalContext;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -16,13 +18,18 @@ public class Principal {
     static NotasParser parser;
     static SemanticoVisitor notaSemantico;
     static GeradorNotaFiscal notaGerada;
+    static PrintWriter pw;
 
     static BancoDeDados bd = new BancoDeDados();
 
     public static void main(String args[]) throws IOException {
-        // Clientes
+        // Lista destinatários
         bd.inserir("17.453.915/0001-55", "NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL", "thiagomt@estudante.ufscar.br", "AVENIDA DUQUE DE CAXIAS", 882, "CENTRO", "PR", "87020025", "4115200", "MARINGA");
 
+        // Inicia o PrintWriter para escrever o output no arquivo passado como parâmetro
+        // CharStreams do arquivo de entrada passado como parâmetro
+        pw = new PrintWriter(new File(args[1]));        
+        
         // Realiza analises antes da geracao do json 
         if (parser(args[0])) {
             if (semantico(args[0])) {
@@ -40,7 +47,8 @@ public class Principal {
             NotaFiscalContext arvore = parser.notaFiscal();
             notaGerada = new GeradorNotaFiscal();
             notaGerada.visitNotaFiscal(arvore);
-            System.out.println(notaGerada.notaFiscal.toString());
+            pw.write(notaGerada.notaFiscal.toString());
+            pw.close();
             return true;
         } catch (IOException | RecognitionException e) {
             System.out.println(e.toString());
@@ -60,7 +68,9 @@ public class Principal {
         if (SemanticoUtils.errosSemanticos.isEmpty()) {
             return true;
         }
-        SemanticoUtils.errosSemanticos.forEach((s) -> System.out.println(s));
+        SemanticoUtils.errosSemanticos.forEach((s) -> pw.write(s + "\n"));
+        pw.write("Fim da compilação\n");
+        pw.close();
         return false;
     }
 
@@ -70,7 +80,7 @@ public class Principal {
             lexer = new NotasLexer(cs);
             tokens = new CommonTokenStream(lexer);
             parser = new NotasParser(tokens);
-            parser.addErrorListener(new ErrorListener());
+            parser.addErrorListener(new ErrorListener(pw));
             parser.notaFiscal();
             return true;
         } catch (IOException | RecognitionException e) {
@@ -88,19 +98,19 @@ public class Principal {
         while ((t = lexer.nextToken()).getType() != Token.EOF) {
             switch (NotasLexer.VOCABULARY.getDisplayName(t.getType())) {
                 case "ERRO" -> {
-                    System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado");
+                    pw.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado");
                     break OUTER;
                 }
                 case "COMENTARIO_ERRADO" -> {
-                    System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - comentario nao fechado");
+                    pw.write("Linha " + t.getLine() + ": " + t.getText() + " - comentario nao fechado");
                     break OUTER;
                 }
                 case "CADEIA_ERRADA" -> {
-                    System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - cadeia nao fechada");
+                    pw.write("Linha " + t.getLine() + ": " + t.getText() + " - cadeia nao fechada");
                     break OUTER;
                 }
                 default -> {
-                    System.out.println("<'" + t.getText() + "'," + NotasLexer.VOCABULARY.getDisplayName(t.getType()) + ">");
+                    pw.write("<'" + t.getText() + "'," + NotasLexer.VOCABULARY.getDisplayName(t.getType()) + ">");
                 }
             }
         }

@@ -1,5 +1,6 @@
 package br.ufscar.dc.compiladores.geradornotafiscal;
 
+import java.io.PrintWriter;
 import java.util.BitSet;
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.Parser;
@@ -10,6 +11,12 @@ import org.antlr.v4.runtime.atn.ATNConfigSet;
 import org.antlr.v4.runtime.dfa.DFA;
 
 public class ErrorListener implements ANTLRErrorListener {
+    
+    PrintWriter pw;
+    
+    public ErrorListener(PrintWriter pw){
+        this.pw = pw;
+    }
 
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
@@ -17,16 +24,16 @@ public class ErrorListener implements ANTLRErrorListener {
         System.out.println("ERRO="+t.getText());
         switch (NotasLexer.VOCABULARY.getDisplayName(t.getType())) {
             case "ERRO" -> {
-                System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado");
+                pw.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado");
             }
             case "COMENTARIO_ERRADO" -> {
-                System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - comentario nao fechado");
+                pw.write("Linha " + t.getLine() + ": " + t.getText() + " - comentario nao fechado");
             }
             case "CADEIA_ERRADA" -> {
-                System.out.println("Linha " + t.getLine() + ": " + t.getText() + " - cadeia nao fechada");
+                pw.write("Linha " + t.getLine() + ": " + t.getText() + " - cadeia nao fechada");
             }
             default -> {
-                System.out.println("<'" + t.getText() + "'," + NotasLexer.VOCABULARY.getDisplayName(t.getType()) + ">");
+                pw.write("<'" + t.getText() + "'," + NotasLexer.VOCABULARY.getDisplayName(t.getType()) + ">");
             }
         }
         throw new RuntimeException();
