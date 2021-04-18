@@ -97,7 +97,7 @@ produtos
     ;
 
 produto
-    :   nome=IDENT ':' valor=NUM_REAL descricao=CADEIA
+    :   nome=IDENT ':' valor=(NUM_REAL|NUM_INT) descricao=CADEIA
     ;
 
 corpo
