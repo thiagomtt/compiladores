@@ -1,0 +1,14 @@
+produtos
+    bolacha: 5 "bolacha de morango"
+
+nota
+    emitente:
+        531.159.398-92
+    destinatario:
+        17.453.915/0001-55
+    itens:
+        bolacha 
+        amendoim (2)
+
+    pagamento:
+        aVista

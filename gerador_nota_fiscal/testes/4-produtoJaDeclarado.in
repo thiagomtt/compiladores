@@ -1,0 +1,17 @@
+produtos
+    bolacha: 5 "bolacha de morango"
+    milho: 5.75 "milho"
+    amendoim: 10.50 "amendoim"
+    milho: 5.75 "milho"
+
+nota
+    emitente:
+        531.159.398-92
+    destinatario:
+        17.453.915/0001-55
+    itens:
+        bolacha 
+        amendoim (2)
+
+    pagamento:
+        aVista
