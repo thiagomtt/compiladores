@@ -1,10 +1,5 @@
 # Gerador Nota Fiscal (JSON)
 
-## Grupo
-
--   Thiago de Moraes Teixeira    - 760667
--   Victoria de Martini de Souza - 759378
-
 ## Objetivo
 
 -   O intuito desse projeto foi a unificação dos projetos anteriores resultando em uma aplicação que realiza as análises lexa, sintática, semântica e a geração de código.

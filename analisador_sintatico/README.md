@@ -1,10 +1,5 @@
 #   Analisador sintático
 
-##  Grupo
-
--   Thiago de Moraes Teixeira    - 760667
--   Victoria de Martini de Souza - 759378
-
 ##  Objetivo
 
 ### Implementar um analisador sintático para a lingaguem LA (Linguagem Algorítmica) 

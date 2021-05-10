@@ -1,10 +1,5 @@
 #   Analisador semântico e gerador de código C
 
-##  Grupo
-
--   Thiago de Moraes Teixeira    - 760667
--   Victoria de Martini de Souza - 759378
-
 ##  Objetivo
 
 ### Implementar um analisador semântico e um gerador de código C para a lingaguem LA (Linguagem Algorítmica) 
